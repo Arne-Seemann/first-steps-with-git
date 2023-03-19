@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-* {
+html {
   font-family: Dancing Script, sans-serif;
   font-size: 20px;
 }
@@ -15,24 +15,22 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   font-family: Edu NSW ACT Foundation, sans-serif;
 }
-
-/*specific styling*/
 
 main {
   padding: 16px;
   max-width: 800px;
   margin: 0px, auto;
-  background-color: lemonchiffon;
+  background-color: black;
+  color: whitesmoke;
 }
 
-#overall-header {
-  text-align: center;
-  background-color: lightgrey;
-  padding: 40px, 800px;
-}
+/*specific styling*/
 
 .main > * {
   border-top: 2px solid black;
@@ -56,4 +54,29 @@ main {
 
 .nav-link + .nav-link {
   margin-left: 16px;
+}
+
+.contact:link {
+  color: whitesmoke;
+}
+
+.contact:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.contact:active {
+  color: gray;
+}
+
+#overall-header {
+  text-align: center;
+  color: black;
+  background-color: lightgrey;
+  padding: 40px, 800px;
+  max-width: 800px;
+}
+
+#profession-subheading::after {
+  content: " 🦖 ";
 }
