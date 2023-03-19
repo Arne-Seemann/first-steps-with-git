@@ -6,11 +6,12 @@
 
 html {
   font-family: Oswald, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
+  background-color: black;
 }
 
 body {
-  margin: 0px;
+  margin: 0;
 }
 
 h1,
@@ -23,35 +24,39 @@ h6 {
 }
 
 main {
-  padding: 16px;
-  max-width: 800px;
-  margin: 0px, auto;
+  padding: 1rem;
+  max-width: 60ch;
+  margin: 0 auto;
   background-color: black;
   color: whitesmoke;
 }
 
 article {
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /*specific styling*/
+
+.title-profession {
+  font-size: 4rem;
+}
 
 .experience > * {
   display: inline-block;
 }
 
 .main > * {
-  border-top: 2px solid whitesmoke;
+  border-top: 0.1rem solid whitesmoke;
 }
 
 .main > * + * {
-  margin-top: 32px;
+  margin-top: 1.6rem;
 }
 
 .article-heading {
   position: relative;
-  left: -16px;
+  left: -0.8rem;
 }
 
 .nav-link:link {
@@ -71,7 +76,7 @@ article {
 }
 
 .nav-link + .nav-link {
-  margin-left: 16px;
+  margin-left: 0.8rem;
 }
 
 .contact:link {
@@ -91,21 +96,66 @@ article {
   text-align: center;
   color: black;
   background-color: lightgrey;
-  padding: 48px 18px;
-  max-width: 800px;
+  padding: 2.4rem 0.9rem;
+  position: relative;
 }
 
 #hire-me {
   position: absolute;
-  right: 0px;
-  top: 0px;
-  margin: 20px;
-  padding: 10px;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+  padding: 0.5rem;
   background-color: black;
   color: lightgray;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+}
+
+#profession-subheading {
+  font-size: 0.25em;
 }
 
 #profession-subheading::after {
   content: " 🦖 ";
+}
+
+#title {
+  font-size: 1em;
+}
+
+#self-employed {
+  position: relative;
+  bottom: 1.5rem;
+  left: 9.8rem;
+  margin-bottom: 0;
+}
+
+/*breakpoints*/
+
+@media screen and (min-width: 782px) {
+  html {
+    font-size: 30px;
+  }
+  .main > * + * {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 40px;
+  }
+  .main > * + * {
+    margin-top: 4rem;
+  }
+  #hire-me {
+    position: fixed;
+  }
+}
+
+@media print {
+  nav,
+  #hire-me {
+    display: none;
+  }
 }
