@@ -6,7 +6,7 @@
 
 html {
   font-family: Oswald, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   background-color: black;
 }
 
@@ -42,8 +42,10 @@ article {
   font-size: 4rem;
 }
 
-.experience > * {
-  display: inline-block;
+.experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .main > * {
@@ -57,6 +59,11 @@ article {
 .article-heading {
   position: relative;
   left: -0.8rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-link:link {
@@ -75,10 +82,6 @@ article {
   color: white;
 }
 
-.nav-link + .nav-link {
-  margin-left: 0.8rem;
-}
-
 .contact:link {
   color: whitesmoke;
 }
@@ -92,7 +95,7 @@ article {
   color: gray;
 }
 
-#overall-header {
+.overall-header {
   text-align: center;
   color: black;
   background-color: lightgrey;
@@ -123,27 +126,32 @@ article {
   font-size: 1em;
 }
 
-#self-employed {
-  position: relative;
-  bottom: 1.5rem;
-  left: 9.8rem;
-  margin-bottom: 0;
-}
-
 /*breakpoints*/
 
 @media screen and (min-width: 782px) {
   html {
-    font-size: 30px;
+    font-size: 18px;
   }
   .main > * + * {
     margin-top: 3rem;
+  }
+  .nav {
+    display: block;
+  }
+  .nav-link + .nav-link {
+    margin-left: 0.8rem;
+  }
+  .experience {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: baseline;
   }
 }
 
 @media screen and (min-width: 992px) {
   html {
-    font-size: 40px;
+    font-size: 20px;
   }
   .main > * + * {
     margin-top: 4rem;
