@@ -7,10 +7,17 @@
 html {
   font-family: Oswald, sans-serif;
   font-size: 16px;
-  background-color: black;
 }
 
 body {
+  --page-background-color: white;
+  --page-text-color: black;
+  --border-color: gray;
+  --radiant-color-one: gray;
+  --radiant-color-two: lightgray;
+  --nav-link-color: black;
+  --nav-link-hover-bg-color: gray;
+  --nav-link-active-color: white;
   margin: 0;
 }
 
@@ -20,15 +27,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Edu NSW ACT Foundation, sans-serif;
+  font-family: Roboto Slab, sans-serif;
 }
 
 main {
   padding: 1rem;
-  max-width: 60ch;
+  max-width: 70ch;
   margin: 0 auto;
-  background-color: black;
-  color: whitesmoke;
+  background-color: var(--page-background-color);
+  color: var(--page-text-color);
 }
 
 article {
@@ -36,7 +43,23 @@ article {
   padding-right: 1rem;
 }
 
+::selection {
+  background-color: var(--radiant-color-two);
+}
+
 /*specific styling*/
+
+.overall-header {
+  text-align: center;
+  color: var(--page-text-color);
+  padding: 2.4rem 0.9rem;
+  position: relative;
+  background-image: linear-gradient(
+    var(--radiant-color-one),
+    var(--radiant-color-two)
+  );
+  background-color: var(--radiant-color-two);
+}
 
 .title-profession {
   font-size: 4rem;
@@ -49,7 +72,11 @@ article {
 }
 
 .main > * {
-  border-top: 0.1rem solid whitesmoke;
+  border-top: 0.125rem solid var(--border-color);
+}
+
+.main > *:first-child {
+  border-top: none;
 }
 
 .main > * + * {
@@ -60,47 +87,59 @@ article {
   position: relative;
   left: -0.8rem;
 }
-
 .nav {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .nav-link:link {
-  color: black;
+  padding: 0.25rem 0.5rem;
+  color: var(--nav-link-color);
+  transition: background-color 0.5s ease-out;
 }
 
 .nav-link:visited {
-  color: black;
+  color: var(--nav-link-color);
 }
 
 .nav-link:hover {
-  background-color: gray;
+  background-color: var(--nav-link-hover-bg-color);
 }
 
 .nav-link:active {
-  color: white;
+  color: var(--nav-link-active-color);
+}
+
+.nav-link:focus {
+  outline-color: var(--nav-link-active-color);
+  outline-style: groove;
 }
 
 .contact:link {
-  color: whitesmoke;
+  color: var(--page-text-color);
 }
 
 .contact:hover {
-  background-color: whitesmoke;
-  color: black;
+  background-color: var(--page-text-color);
+  color: var(--page-background-color);
 }
 
 .contact:active {
-  color: gray;
+  color: var(--border-color);
 }
 
-.overall-header {
+.footer {
+  padding: 1rem;
+  margin-top: 2rem;
+  background-image: linear-gradient(
+    var(--radiant-color-two),
+    var(--radiant-color-one)
+  );
+}
+
+.footer-text {
   text-align: center;
-  color: black;
-  background-color: lightgrey;
-  padding: 2.4rem 0.9rem;
-  position: relative;
 }
 
 #hire-me {
@@ -109,9 +148,18 @@ article {
   top: 0;
   margin: 1rem;
   padding: 0.5rem;
-  background-color: black;
-  color: lightgray;
+  background-color: var(--page-text-color);
+  color: var(--page-background-color);
   border-radius: 0.5rem;
+  opacity: 0.5;
+  transform-origin: 90% 10%;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.overall-header:hover #hire-me,
+.overall-header:focus-within #hire-me {
+  opacity: 1;
+  transform: scale(2);
 }
 
 #profession-subheading {
@@ -145,7 +193,14 @@ article {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: baseline;
+    align-items: baseline;
+  }
+  .main-article {
+    display: grid;
+    grid-template-columns: 1fr 2.75fr;
+  }
+  .content-wrapper {
+    margin-top: 3rem;
   }
 }
 
@@ -165,5 +220,15 @@ article {
   nav,
   #hire-me {
     display: none;
+  }
+}
+
+/*Color-sheme*/
+
+@media screen and (prefers-color-sheme: dark) {
+  body {
+    --page-background-color: black;
+    --page-text-color: white;
+    --border-color: lightgray;
   }
 }
